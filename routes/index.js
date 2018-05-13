@@ -1,5 +1,6 @@
 var express = require('express');
 var _ = require("underscore");
+var moment = require("moment");
 var fs = require("fs");
 
 var router = express.Router();
@@ -31,7 +32,29 @@ router.get('/session_time/:session_time', async (req, res) => {
  * API - 2/3
  */
 router.get('/session/next/:type', async (req, res) => {
-  res.status(200).json({ "status": 1, "message": "Under developement" });
+  let current_date = moment();
+
+  let clone_obj = JSON.parse(JSON.stringify(data_obj));
+
+  let new_data = clone_obj.map(function(session){
+    session.moment = moment(session.Date+"-"+session.Start,'dddd, MMMM Do-H:mm A');
+    session.timestamp = session.moment.toDate().getTime();
+    return session;
+  });
+
+  new_data = _.sortBy(new_data, function(o) { return o.timestamp; })
+
+  let next_session = new_data.filter(function(session){
+    if(session.moment.isAfter(current_date) && session["Event Type"] == req.params.type){
+      return true; 
+    }
+  });
+
+  if(next_session){
+    res.status(200).json({ "status": 1, "message": "Next session found", "next_session":next_session[0]});
+  } else {
+    res.status(400).json({"status":0,"message":"No next session found"});
+  }
 });
 
 /**
@@ -42,14 +65,18 @@ router.get('/session/next/:type', async (req, res) => {
  */
 router.get('/speaker/:speaker_name', async (req, res) => {
   try {
-    let sessions = await _.where(data_obj,{"Presenter":req.params.speaker_name});
+    let sessions = data_obj.filter(function(session){
+      if(session.Presenter && session.Presenter.search(req.params.speaker_name) != -1){
+        return true;
+      }
+    });
     if(sessions.length > 0){
       res.status(200).json({"status":1,"message":"Speaker's session found","sessions":sessions});
     } else {
       res.status(400).json({"status":0,"message":"No session found for given speaker"});
     }
   } catch (err) {
-    res.status(500).json({ "status": 0, "message": "Error in finding session by speaker name" });
+    res.status(500).json({ "status": 0, "message": "Error in finding session by speaker name", "error":err });
   }
 });
 
