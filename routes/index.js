@@ -41,7 +41,16 @@ router.get('/session/next/:type', async (req, res) => {
  * API - 4
  */
 router.get('/speaker/:speaker_name', async (req, res) => {
-  res.status(200).json({ "status": 1, "message": "Under developement" });
+  try {
+    let sessions = await _.where(data_obj,{"Presenter":req.params.speaker_name});
+    if(sessions.length > 0){
+      res.status(200).json({"status":1,"message":"Speaker's session found","sessions":sessions});
+    } else {
+      res.status(400).json({"status":0,"message":"No session found for given speaker"});
+    }
+  } catch (err) {
+    res.status(500).json({ "status": 0, "message": "Error in finding session by speaker name" });
+  }
 });
 
 /**
@@ -56,7 +65,7 @@ router.get('/session/:session_name', async (req, res) => {
     if(sessions.length > 0){
       res.status(200).json({"status":1,"message":"Session data found","sessions":sessions});
     } else {
-      res.status(400).json({"status":0,"message":"No session found"});
+      res.status(400).json({"status":0,"message":"No session found for given session name"});
     }
   } catch (err) {
     res.status(500).json({ "status": 0, "message": "Error in finding session" });
