@@ -1,0 +1,335 @@
+[
+ {
+   "Date": "Monday, June 4th",
+   "Start": "7:00 PM",
+   "End": "10:00 PM",
+   "Event": "Welcome reception",
+   "Event Type": "Welcome",
+   "Presenter": null,
+   "Room Info": "House"
+ },
+ {
+   "Date": "Tuesday, June 5th",
+   "Start": "6:30 AM",
+   "End": "8:15 AM",
+   "Event": "Breakfast",
+   "Event Type": "Breakfast",
+   "Presenter": null,
+   "Room Info": "One Restaurant"
+ },
+ {
+   "Date": "Tuesday, June 5th",
+   "Start": "8:30 AM",
+   "End": "8:45 AM",
+   "Event": "Welcome",
+   "Event Type": "Session",
+   "Presenter": "Ron and Ram",
+   "Room Info": "Salon 1-3"
+ },
+ {
+   "Date": "Tuesday, June 5th",
+   "Start": "8:45 AM",
+   "End": "9:05 AM",
+   "Event": "Strategy",
+   "Event Type": "Session",
+   "Presenter": "Brent",
+   "Room Info": "Salon 1-3"
+ },
+ {
+   "Date": "Tuesday, June 5th",
+   "Start": "9:05 AM",
+   "End": "9:25 AM",
+   "Event": "Leading and Driving Our Success",
+   "Event Type": "Session",
+   "Presenter": "Bill",
+   "Room Info": "Salon 1-3"
+ },
+ {
+   "Date": "Tuesday, June 5th",
+   "Start": "9:45 AM",
+   "End": "10:00 AM",
+   "Event": "Powering Growth",
+   "Event Type": "Session",
+   "Presenter": "Erick",
+   "Room Info": "Salon 1-3"
+ },
+ {
+   "Date": "Tuesday, June 5th",
+   "Start": "10:00 AM",
+   "End": "10:30 AM",
+   "Event": "Break",
+   "Event Type": "Break",
+   "Presenter": null,
+   "Room Info": null
+ },
+ {
+   "Date": "Tuesday, June 5th",
+   "Start": "10:30 AM",
+   "End": "12:00 PM",
+   "Event": "Future Challenges",
+   "Event Type": "Session",
+   "Presenter": "Preparing for new competition - Kim, Consolidation - Mauracio & Doug, Customer Focus - Jeff",
+   "Room Info": null
+ },
+ {
+   "Date": "Tuesday, June 5th",
+   "Start": "12:00 PM",
+   "End": "1:00 PM",
+   "Event": "Lunch",
+   "Event Type": "Lunch",
+   "Presenter": null,
+   "Room Info": "One Restaurant"
+ },
+ {
+   "Date": "Tuesday, June 5th",
+   "Start": "1:00 PM",
+   "End": "1:15 PM",
+   "Event": "Powering Growth - Recap",
+   "Event Type": "Session",
+   "Presenter": "Erick",
+   "Room Info": "Salon 1-3"
+ },
+ {
+   "Date": "Tuesday, June 5th",
+   "Start": "1:15 PM",
+   "End": "1:55 PM",
+   "Event": "Payer",
+   "Event Type": "Session",
+   "Presenter": "Jerry, June and Kent",
+   "Room Info": "Salon 1-3"
+ },
+ {
+   "Date": "Tuesday, June 5th",
+   "Start": "2:30 PM",
+   "End": "2:45 PM",
+   "Event": "Move",
+   "Event Type": "Break",
+   "Presenter": null,
+   "Room Info": null
+ },
+ {
+   "Date": "Tuesday, June 5th",
+   "Start": "2:45 PM",
+   "End": "3:45 PM",
+   "Event": "Employee Engagement Survey",
+   "Event Type": "Session",
+   "Presenter": "Soni & Smith",
+   "Room Info": "Heritage Suite"
+ },
+ {
+   "Date": "Tuesday, June 5th",
+   "Start": "3:45 PM",
+   "End": "4:15 PM",
+   "Event": "Break",
+   "Event Type": "Break",
+   "Presenter": null,
+   "Room Info": null
+ },
+ {
+   "Date": "Tuesday, June 5th",
+   "Start": "4:15 PM",
+   "End": "5:00 PM",
+   "Event": "Employee Engagement Survey",
+   "Event Type": "Session",
+   "Presenter": "Soni & Smith",
+   "Room Info": "Salon 1-3"
+ },
+ {
+   "Date": "Tuesday, June 5th",
+   "Start": "5:00 PM",
+   "End": "7:00 PM",
+   "Event": "Free time",
+   "Event Type": null,
+   "Presenter": null,
+   "Room Info": null
+ },
+ {
+   "Date": "Tuesday, June 5th",
+   "Start": "7:00 PM",
+   "End": "10:PM",
+   "Event": "Evening Events",
+   "Event Type": "Dinner",
+   "Presenter": null,
+   "Room Info": "Lawn"
+ },
+ {
+   "Date": "Wednesday, June 6th",
+   "Start": "6:30 AM",
+   "End": "8:15 AM",
+   "Event": "Breakfast",
+   "Event Type": "Breakfast",
+   "Presenter": null,
+   "Room Info": "One Resaurant"
+ },
+ {
+   "Date": "Wednesday, June 6th",
+   "Start": "8:15 AM",
+   "End": "8:30 AM",
+   "Event": "Move",
+   "Event Type": "Break",
+   "Presenter": null,
+   "Room Info": null
+ },
+ {
+   "Date": "Wednesday, June 6th",
+   "Start": "8:30 AM",
+   "End": "9:00 AM",
+   "Event": "Innovation Panel",
+   "Event Type": "Session",
+   "Presenter": "Mark",
+   "Room Info": "Sally Gap"
+ },
+ {
+   "Date": "Wednesday, June 6th",
+   "Start": "9:00 AM",
+   "End": "9:10 AM",
+   "Event": "Our Pipeline",
+   "Event Type": "Session",
+   "Presenter": "Intro - Maya",
+   "Room Info": "Salon 1-3"
+ },
+ {
+   "Date": "Wednesday, June 6th",
+   "Start": "9:10 AM",
+   "End": "9:30 AM",
+   "Event": "Move",
+   "Event Type": "Break",
+   "Presenter": null,
+   "Room Info": null
+ },
+ {
+   "Date": "Wednesday, June 6th",
+   "Start": "9:30 AM",
+   "End": "10:45 AM",
+   "Event": "Our Pipeline",
+   "Event Type": "Session",
+   "Presenter": "Pipeline Update - Darwin, Preparing for Launch - Dave, Launch Experience - Will",
+   "Room Info": "Salon 1-3"
+ },
+ {
+   "Date": "Wednesday, June 6th",
+   "Start": "12:00 PM",
+   "End": "1:00 PM",
+   "Event": "Lunch",
+   "Event Type": "Lunch",
+   "Presenter": null,
+   "Room Info": "One Resaurant"
+ },
+ {
+   "Date": "Wednesday, June 6th",
+   "Start": "1:00 PM",
+   "End": "1:10 PM",
+   "Event": "Our Bold Culture",
+   "Event Type": "Session",
+   "Presenter": "Kelly",
+   "Room Info": "Salon 1-3"
+ },
+ {
+   "Date": "Wednesday, June 6th",
+   "Start": "1:30 PM",
+   "End": "1:45 PM",
+   "Event": "Table Talk",
+   "Event Type": "Session",
+   "Presenter": null,
+   "Room Info": "Salon 1-3"
+ },
+ {
+   "Date": "Wednesday, June 6th",
+   "Start": "2:30 PM",
+   "End": "2:45 PM",
+   "Event": "Team building",
+   "Event Type": "Session",
+   "Presenter": "TeamWork",
+   "Room Info": "Hotel Grounds"
+ },
+ {
+   "Date": "Wednesday, June 6th",
+   "Start": "2:45 PM",
+   "End": "3:00 PM",
+   "Event": "Move",
+   "Event Type": "Break",
+   "Presenter": null,
+   "Room Info": null
+ },
+ {
+   "Date": "Wednesday, June 6th",
+   "Start": "3:00 PM",
+   "End": "4:30 PM",
+   "Event": "Team building",
+   "Event Type": "Session",
+   "Presenter": "TeamWork",
+   "Room Info": "Hotel Grounds"
+ },
+ {
+   "Date": "Thursday, June 7",
+   "Start": "6:30 AM",
+   "End": "7:45 AM",
+   "Event": "Breakfast",
+   "Event Type": "Breakfast",
+   "Presenter": null,
+   "Room Info": "One Restaurant"
+ },
+ {
+   "Date": "Thursday, June 7",
+   "Start": "7:45 AM",
+   "End": "8:00 AM",
+   "Event": "Move",
+   "Event Type": "Break",
+   "Presenter": null,
+   "Room Info": null
+ },
+ {
+   "Date": "Thursday, June 7",
+   "Start": "8:00 AM",
+   "End": "8:30 AM",
+   "Event": "Next Horizon of Innovation",
+   "Event Type": "Session",
+   "Presenter": "Brown",
+   "Room Info": "Salon 1-3"
+ },
+ {
+   "Date": "Thursday, June 7",
+   "Start": "8:30 AM",
+   "End": "9:30 AM",
+   "Event": "Strategic Outlook",
+   "Event Type": "Session",
+   "Presenter": "Matt",
+   "Room Info": "Salon 1-3"
+ },
+ {
+   "Date": "Thursday, June 7",
+   "Start": "9:30 AM",
+   "End": "9:45 AM",
+   "Event": "Move",
+   "Event Type": "Break",
+   "Presenter": null,
+   "Room Info": null
+ },
+ {
+   "Date": "Thursday, June 7",
+   "Start": "11:15 AM",
+   "End": "11:30 AM",
+   "Event": "Table Talk",
+   "Event Type": "Session",
+   "Presenter": "Ana & Vasil",
+   "Room Info": "Salon 1-3"
+ },
+ {
+   "Date": "Thursday, June 7",
+   "Start": "11:30 AM",
+   "End": "12:00 PM",
+   "Event": "Closing remarks",
+   "Event Type": "Session",
+   "Presenter": "Brent",
+   "Room Info": "Salon 1-3"
+ },
+ {
+   "Date": "Thursday, June 7",
+   "Start": "12:00 PM",
+   "End": "1:00 PM",
+   "Event": "Lunch",
+   "Event Type": "Lunch",
+   "Presenter": null,
+   "Room Info": "One Restaurant"
+ }
+]
