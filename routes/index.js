@@ -21,7 +21,50 @@ router.get('/', function (req, res, next) {
  * API - 1
  */
 router.get('/session_time/:session_time', async (req, res) => {
-  res.status(200).json({ "status": 1, "message": "Under developement" });
+  let clone_obj = JSON.parse(JSON.stringify(data_obj));
+
+  let new_data = clone_obj.map(function (session) {
+    session.moment = moment(session.Start, 'H:mm A');
+    return session;
+  });
+
+
+  if (req.params.session_time === "morning") {
+    let morning_time = moment("12:00 PM",'H:mm A');
+
+    let sessions = new_data.filter(function (session) {
+      if (session.moment.isBefore(morning_time) && session["Event Type"] == "Session") {
+        delete session.moment;
+        return true;
+      }
+    });
+
+    if (sessions.length > 0) {
+      res.status(200).json({ "status": 1, "message": "Morning session found", "sessions": sessions });
+    } else {
+      res.status(400).json({ "status": 0, "message": "No session found" });
+    }
+
+  } else if (req.params.session_time === "after-noon") {
+
+    let evening_time = moment("11:59 AM",'H:mm A');
+
+    let sessions = new_data.filter(function (session) {
+      if (session.moment.isAfter(evening_time) && session["Event Type"] == "Session") {
+        delete session.moment;
+        return true;
+      }
+    });
+
+    if (sessions.length > 0) {
+      res.status(200).json({ "status": 1, "message": "After-noon session found", "sessions": sessions });
+    } else {
+      res.status(400).json({ "status": 0, "message": "No session found" });
+    }
+
+  } else {
+    res.status(400).json({ "status": 0, "message": "Invalid session time entered" });
+  }
 });
 
 /**
@@ -36,24 +79,26 @@ router.get('/session/next/:type', async (req, res) => {
 
   let clone_obj = JSON.parse(JSON.stringify(data_obj));
 
-  let new_data = clone_obj.map(function(session){
-    session.moment = moment(session.Date+"-"+session.Start,'dddd, MMMM Do-H:mm A');
+  let new_data = clone_obj.map(function (session) {
+    session.moment = moment(session.Date + "-" + session.Start, 'dddd, MMMM Do-H:mm A');
     session.timestamp = session.moment.toDate().getTime();
     return session;
   });
 
-  new_data = _.sortBy(new_data, function(o) { return o.timestamp; })
+  new_data = _.sortBy(new_data, function (o) { return o.timestamp; })
 
-  let next_session = new_data.filter(function(session){
-    if(session.moment.isAfter(current_date) && session["Event Type"] == req.params.type){
-      return true; 
+  let next_session = new_data.filter(function (session) {
+    if (session.moment.isAfter(current_date) && session["Event Type"] == req.params.type) {
+      delete session.moment;
+      delete session.timestamp;
+      return true;
     }
   });
 
-  if(next_session){
-    res.status(200).json({ "status": 1, "message": "Next session found", "next_session":next_session[0]});
+  if (next_session) {
+    res.status(200).json({ "status": 1, "message": "Next session found", "next_session": next_session[0] });
   } else {
-    res.status(400).json({"status":0,"message":"No next session found"});
+    res.status(400).json({ "status": 0, "message": "No next session found" });
   }
 });
 
@@ -65,18 +110,18 @@ router.get('/session/next/:type', async (req, res) => {
  */
 router.get('/speaker/:speaker_name', async (req, res) => {
   try {
-    let sessions = data_obj.filter(function(session){
-      if(session.Presenter && session.Presenter.search(req.params.speaker_name) != -1){
+    let sessions = data_obj.filter(function (session) {
+      if (session.Presenter && session.Presenter.search(req.params.speaker_name) != -1) {
         return true;
       }
     });
-    if(sessions.length > 0){
-      res.status(200).json({"status":1,"message":"Speaker's session found","sessions":sessions});
+    if (sessions.length > 0) {
+      res.status(200).json({ "status": 1, "message": "Speaker's session found", "sessions": sessions });
     } else {
-      res.status(400).json({"status":0,"message":"No session found for given speaker"});
+      res.status(400).json({ "status": 0, "message": "No session found for given speaker" });
     }
   } catch (err) {
-    res.status(500).json({ "status": 0, "message": "Error in finding session by speaker name", "error":err });
+    res.status(500).json({ "status": 0, "message": "Error in finding session by speaker name", "error": err });
   }
 });
 
@@ -88,11 +133,11 @@ router.get('/speaker/:speaker_name', async (req, res) => {
  */
 router.get('/session/:session_name', async (req, res) => {
   try {
-    let sessions = await _.where(data_obj,{"Event":req.params.session_name});
-    if(sessions.length > 0){
-      res.status(200).json({"status":1,"message":"Session data found","sessions":sessions});
+    let sessions = await _.where(data_obj, { "Event": req.params.session_name });
+    if (sessions.length > 0) {
+      res.status(200).json({ "status": 1, "message": "Session data found", "sessions": sessions });
     } else {
-      res.status(400).json({"status":0,"message":"No session found for given session name"});
+      res.status(400).json({ "status": 0, "message": "No session found for given session name" });
     }
   } catch (err) {
     res.status(500).json({ "status": 0, "message": "Error in finding session" });
