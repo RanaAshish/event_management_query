@@ -3,7 +3,6 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var fs = require("fs");
 
 var indexRouter = require('./routes/index');
 
@@ -18,11 +17,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-// read json data
-var data_obj = JSON.parse(fs.readFileSync('public/json/data.json', 'utf8'));
-
-console.log("Data = ",data_obj);
 
 app.use('/', indexRouter);
 

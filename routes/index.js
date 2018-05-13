@@ -1,8 +1,14 @@
 var express = require('express');
+var _ = require("underscore");
+var fs = require("fs");
+
 var router = express.Router();
 
+// read json data
+var data_obj = JSON.parse(fs.readFileSync('public/json/data.json', 'utf8'));
+
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
@@ -13,8 +19,8 @@ router.get('/', function(req, res, next) {
  * Developed by "ar"
  * API - 1
  */
-router.get('/session_time/:session_time',async(req,res)=>{
-  res.status(200).json({"status":1,"message":"Under developement"});
+router.get('/session_time/:session_time', async (req, res) => {
+  res.status(200).json({ "status": 1, "message": "Under developement" });
 });
 
 /**
@@ -24,8 +30,8 @@ router.get('/session_time/:session_time',async(req,res)=>{
  * Developed by "ar"
  * API - 2/3
  */
-router.get('/session/next/:type',async(req,res)=>{
-  res.status(200).json({"status":1,"message":"Under developement"});
+router.get('/session/next/:type', async (req, res) => {
+  res.status(200).json({ "status": 1, "message": "Under developement" });
 });
 
 /**
@@ -34,8 +40,8 @@ router.get('/session/next/:type',async(req,res)=>{
  * Developed by "ar"
  * API - 4
  */
-router.get('/speaker/:speaker_name',async(req,res)=>{
-  res.status(200).json({"status":1,"message":"Under developement"});
+router.get('/speaker/:speaker_name', async (req, res) => {
+  res.status(200).json({ "status": 1, "message": "Under developement" });
 });
 
 /**
@@ -44,8 +50,17 @@ router.get('/speaker/:speaker_name',async(req,res)=>{
  * Developed by "ar"
  * API - 5
  */
-router.get('/session/:session_name',async(req,res)=>{
-  res.status(200).json({"status":1,"message":"Under developement"});
+router.get('/session/:session_name', async (req, res) => {
+  try {
+    let sessions = await _.where(data_obj,{"Event":req.params.session_name});
+    if(sessions.length > 0){
+      res.status(200).json({"status":1,"message":"Session data found","sessions":sessions});
+    } else {
+      res.status(400).json({"status":0,"message":"No session found"});
+    }
+  } catch (err) {
+    res.status(500).json({ "status": 0, "message": "Error in finding session" });
+  }
 });
 
 module.exports = router;
